@@ -1,10 +1,9 @@
 package tn.esprit.rh.achat.util;
 
 import java.util.Arrays;
+
 import java.util.Collections;
 import java.util.List;
-
-import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -64,8 +63,5 @@ public class SpringFoxSwaggerConfig {
 		return Arrays.asList(new SecurityReference("Bearer", authorizationScopes)); 
 
 	}
-	@Bean
-	public ModelMapper modelMapper() {
-	    return new ModelMapper();
-	}
+
 }
