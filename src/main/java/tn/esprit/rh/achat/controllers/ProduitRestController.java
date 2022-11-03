@@ -1,12 +1,18 @@
 package tn.esprit.rh.achat.controllers;
 
 import io.swagger.annotations.Api;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.rh.achat.entities.Produit;
+import tn.esprit.rh.achat.entities.ProduitDTO;
 import tn.esprit.rh.achat.services.IProduitService;
 
+import java.text.ParseException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -14,32 +20,45 @@ import java.util.List;
 @Api(tags = "Gestion des produits")
 @RequestMapping("/produit")
 public class ProduitRestController {
-
+	@Bean
+	public ModelMapper modelMapper() {
+	    return new ModelMapper();
+	}
 	@Autowired
 	IProduitService produitService;
-
+	private ProduitDTO convertToDto(Produit p) {
+	    ProduitDTO prodDto = modelMapper().map(p, ProduitDTO.class);
+	    return prodDto;
+	}
+	private Produit convertToEntity(ProduitDTO prodDto) throws ParseException {
+	    Produit p = modelMapper().map(prodDto, Produit.class);
+	    return p;
+	}
 	// http://localhost:8089/SpringMVC/produit/retrieve-all-produits
 	@GetMapping("/retrieve-all-produits")
 	@ResponseBody
-	public List<Produit> getProduits() {
+	public List<ProduitDTO> getProduits() {
 		List<Produit> list = produitService.retrieveAllProduits();
-		return list;
+		return list.stream()
+				.map(this::convertToDto)
+				.collect(Collectors.toList());
 	}
 
 	// http://localhost:8089/SpringMVC/produit/retrieve-produit/8
 	@GetMapping("/retrieve-produit/{produit-id}")
 	@ResponseBody
-	public Produit retrieveRayon(@PathVariable("produit-id") Long produitId) {
-		return produitService.retrieveProduit(produitId);
+	public ProduitDTO retrieveRayon(@PathVariable("produit-id") Long produitId) {
+		Produit p=produitService.retrieveProduit(produitId);
+		return convertToDto(p);
 	}
 
 	/* Ajouter en produit tout en lui affectant la catégorie produit et le stock associés */
 	// http://localhost:8089/SpringMVC/produit/add-produit/{idCategorieProduit}/{idStock}
 	@PostMapping("/add-produit")
 	@ResponseBody
-	public Produit addProduit(@RequestBody Produit p) {
+	public ProduitDTO addProduit(@RequestBody Produit p) {
 		Produit produit = produitService.addProduit(p);
-		return produit;
+		return convertToDto(produit);
 	}
 
 	// http://localhost:8089/SpringMVC/produit/remove-produit/{produit-id}
@@ -52,8 +71,9 @@ public class ProduitRestController {
 	// http://localhost:8089/SpringMVC/produit/modify-produit/{idCategorieProduit}/{idStock}
 	@PutMapping("/modify-produit")
 	@ResponseBody
-	public Produit modifyProduit(@RequestBody Produit p) {
-		return produitService.updateProduit(p);
+	public ProduitDTO modifyProduit(@RequestBody Produit p) {
+		Produit p=produitService.updateProduit(p);
+		return convertToDto(p);
 	}
 
 	/*
