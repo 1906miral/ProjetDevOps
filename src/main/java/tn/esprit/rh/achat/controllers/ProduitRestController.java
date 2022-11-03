@@ -72,8 +72,8 @@ public class ProduitRestController {
 	@PutMapping("/modify-produit")
 	@ResponseBody
 	public ProduitDTO modifyProduit(@RequestBody Produit p) {
-		Produit p=produitService.updateProduit(p);
-		return convertToDto(p);
+		Produit p1=produitService.updateProduit(p);
+		return convertToDto(p1);
 	}
 
 	/*
