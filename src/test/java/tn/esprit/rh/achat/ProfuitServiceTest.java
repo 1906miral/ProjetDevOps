@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.repositories.ProduitRepository;
 import tn.esprit.rh.achat.services.ProduitServiceImpl;
-@SpringBootTest
+@SpringBootTest(classes=ProfuitServiceTest.class)
 @ExtendWith(MockitoExtension.class)
 public class ProfuitServiceTest {
      @Mock
