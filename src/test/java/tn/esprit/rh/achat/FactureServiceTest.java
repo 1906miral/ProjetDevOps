@@ -53,7 +53,6 @@ public class FactureServiceTest {
 		assertEquals(expected, facture);
 		verify(sr).findAll();
 	}
-
 	@Test
 	public void DeleteFactureIfExistTest() {
 		Facture facture = new Facture();
@@ -64,5 +63,4 @@ public class FactureServiceTest {
 		 ss.cancelFacture(66L);
 		 Mockito.verify(sr, times(0)).delete(facture);
 	};
-//	};
 }
