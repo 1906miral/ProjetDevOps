@@ -1,15 +1,15 @@
 pipeline {
     agent any
         environment { 
+        registry = "miralbarhoumi1/DevOpsProject" 
+        registryCredential = 'dockerHub' 
        
-   
-        
-	NEXUS_VERSION="nexus3"
+      NEXUS_VERSION="nexus3"
 	NEXUS_PROTOCOL="http"
 	NEXUS_URL="192.168.1.149:8081"
 	NEXUS_REPOSITORY="nexus-repo-devops"
 	NEXUS_CREDENTIAL_ID="nexus-user-credentials"
-	
+	dockerImage = '' 
 
     }		
 
@@ -85,6 +85,29 @@ pipeline {
                 }
             }
         }	
+	stage('Building our image') { 
+            steps { 
+                script { 
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                }
+            } 
+        }
+
+        stage('Deploy our image') { 
+            steps { 
+                script { 
+                    docker.withRegistry( '', registryCredential ) { 
+                        dockerImage.push() 
+                    }
+                } 
+            }
+        } 
+
+        stage('Cleaning up') { 
+            steps { 
+                sh "docker rmi $registry:$BUILD_NUMBER" 
+            }
+        }
         stage('show Date') {
             steps {
                 echo 'Showing Date...';
