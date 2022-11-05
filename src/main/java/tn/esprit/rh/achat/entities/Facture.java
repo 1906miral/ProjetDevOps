@@ -1,5 +1,7 @@
 package tn.esprit.rh.achat.entities;
 
+import static tn.esprit.rh.achat.entities.CategorieFournisseur.CONVENTIONNE;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -44,5 +46,12 @@ public class Facture implements Serializable {
     @JsonIgnore
     private Set<Reglement> reglements;
 
+    
+	public Facture(long idFacture, float montantRemise, float montantFacture, Boolean archivee) {
+		this.idFacture = idFacture;
+		this.montantRemise = montantRemise;
+		this.montantFacture = montantFacture;
+		this.archivee = archivee;
+	}
 	
 }

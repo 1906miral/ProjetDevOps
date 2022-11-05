@@ -32,11 +32,14 @@ public class FactureServiceTest {
     @InjectMocks
     FactureServiceImpl factureService;
     
-    Facture f1 = new Facture();
+    Facture f1 = new Facture(13L, (float)1200, (float)1400,  false);
+    Facture f2 = new Facture(14L, (float)1300, (float)1500,  true);
 
     List<Facture> listFactures = new ArrayList<Facture>() {
         {
-            add(new Facture());
+        	 add(f1);
+	         add(new Facture(15L, (float)1800, (float)1400,  true));
+	         add(new Facture(16L, (float)1600, (float)1400,  false));
         }
     };
     
@@ -50,10 +53,10 @@ public class FactureServiceTest {
         //assertEquals(operateur1.,55L);
     }
 
-/*    public void retrieveFacture() {
+   public void retrieveFacture() {
         System.out.println("retrieveFactures");
-        Mockito.when(factureRepository.findById(12L)).thenReturn(Optional.of(f1));
-        Facture facture1 = factureService.retrieveFacture(12L);
+        Mockito.when(factureRepository.findById(13L)).thenReturn(Optional.of(f1));
+        Facture facture1 = factureService.retrieveFacture(13L);
         assertNotNull(facture1);
     }
     @Test
@@ -63,7 +66,7 @@ public class FactureServiceTest {
         Facture facture1 = factureService.addFacture(f1);
         assertNotNull(facture1);
         Mockito.verify(factureRepository, times(1)).save(Mockito.any(Facture.class));
-    }*/
+    }
 
 
 }
