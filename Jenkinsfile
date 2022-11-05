@@ -35,6 +35,12 @@ pipeline {
                     sh 'mvn test -e '
                 }
             }
+             stage('MVN SONARQUBE') {
+            steps{
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+            }
+        }
+            
 
         stage('show Date') {
             steps {
