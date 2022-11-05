@@ -29,6 +29,11 @@ pipeline {
                 sh 'mvn install -DskipTests=true'
             }
         }
+	stage('MVN JUNIT') {
+                steps{
+                    sh 'mvn test -e '
+                }
+            }
 
         stage('show Date') {
             steps {
