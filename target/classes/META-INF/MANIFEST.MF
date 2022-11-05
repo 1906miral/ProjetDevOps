@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: achat
+Implementation-Version: 1.0
+Built-By: Redissi Manel
+Implementation-Vendor-Id: tn.esprit.rh
+Build-Jdk: 1.8.0_261
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/achat
+Created-By: Maven Integration for Eclipse
+
