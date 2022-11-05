@@ -70,7 +70,6 @@ public class OperateurServiceTest {
 	        Mockito.verify(operateurRepository, times(1)).save(Mockito.any(Operateur.class));
 	    }
 
-
 	    @Test
 	   public void testdeleteOperateur(){
 	        System.out.println("testdeleteoperateur");
