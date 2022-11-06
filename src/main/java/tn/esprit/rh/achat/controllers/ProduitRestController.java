@@ -10,7 +10,6 @@ import java.util.List;
 
 
 @RestController
-@Api(tags = "Gestion des produits")
 @RequestMapping("/produit")
 public class ProduitRestController {
 
