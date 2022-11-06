@@ -1,7 +1,4 @@
 package tn.esprit.rh.achat;
-
-
-
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.mockito.InjectMocks;
@@ -58,7 +55,6 @@ public class FournisseurServiceTest {
         Mockito.when(fournisseurRepository.findAll()).thenReturn(listFournisseurs);
         List<Fournisseur> fournisseurList3 = fournisseurService.retrieveAllFournisseurs();
         assertEquals(3, fournisseurList3.size());
-        //assertEquals(fournisseur1.,55L);
     }
 
     @Test
@@ -69,7 +65,6 @@ public class FournisseurServiceTest {
         assertNotNull(fournisseur1);
         Mockito.verify(fournisseurRepository, times(1)).save(Mockito.any(Fournisseur.class));
     }
-
 
     @Test
     public void testdeleteFournisseur(){

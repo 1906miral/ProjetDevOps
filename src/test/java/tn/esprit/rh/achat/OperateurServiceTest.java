@@ -58,7 +58,6 @@ public class OperateurServiceTest {
 	        Mockito.when(operateurRepository.findAll()).thenReturn(listOperateurs);
 	        List<Operateur> operateurList3 = operateurService.retrieveAllOperateurs();
 	        assertEquals(3, operateurList3.size());
-	        //assertEquals(operateur1.,55L);
 	    }
 
 	    @Test
@@ -69,7 +68,6 @@ public class OperateurServiceTest {
 	        assertNotNull(operateur1);
 	        Mockito.verify(operateurRepository, times(1)).save(Mockito.any(Operateur.class));
 	    }
-
 	    @Test
 	   public void testdeleteOperateur(){
 	        System.out.println("testdeleteoperateur");
