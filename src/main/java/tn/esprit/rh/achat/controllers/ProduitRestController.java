@@ -19,6 +19,11 @@ public class ProduitRestController {
 	IProduitService produitService;
 
 
+	public ProduitRestController() {
+	
+	}
+
+
 	@GetMapping("/retrieve-all-produits")
 	@ResponseBody
 	public List<Produit> getProduits() {
