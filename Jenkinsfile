@@ -88,7 +88,7 @@ pipeline {
 	stage('Building our image') { 
             steps { 
                 script { 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                    dockerImage = docker.build registry + ":latest" 
                 }
             } 
         }
@@ -105,7 +105,7 @@ pipeline {
 
         stage('Cleaning up') { 
             steps { 
-                sh "docker rmi $registry:$BUILD_NUMBER" 
+                sh "docker rmi $registry:latest" 
             }
         }
         stage('show Date') {
