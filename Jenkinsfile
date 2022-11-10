@@ -116,7 +116,13 @@ pipeline {
         }
 
     }
- 	
+     post{
+        success{
+            mail to: "miral.barhoumi@esprit.tn",
+            subject: "Jenkins Pipeline",
+            body: "Build:$BUILD_NUMBER SUCCESS"
+        }
+    }
 
 
 }
