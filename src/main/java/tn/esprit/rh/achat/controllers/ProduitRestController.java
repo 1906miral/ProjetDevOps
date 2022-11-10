@@ -10,19 +10,15 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin("*")
 @Api(tags = "Gestion des produits")
 @RequestMapping("/produit")
 public class ProduitRestController {
 
 	@Autowired
 	IProduitService produitService;
-
-
-	public ProduitRestController() {
+        public ProduitRestController() {
 	
 	}
-
 
 	@GetMapping("/retrieve-all-produits")
 	@ResponseBody
