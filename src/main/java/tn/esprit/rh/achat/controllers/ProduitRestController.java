@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin(origins = "http://192.168.1.149:4200")
+@CrossOrigin("*")
 @Api(tags = "Gestion des produits")
 @RequestMapping("/produit")
 public class ProduitRestController {

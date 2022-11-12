@@ -17,10 +17,11 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 
 @Configuration
-@EnableWebMvc
+@EnableSwagger2
 public class SpringFoxSwaggerConfig {
 
 	public static final String AUTHORIZATION_HEADER = "Authorization";
