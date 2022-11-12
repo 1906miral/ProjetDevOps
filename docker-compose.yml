@@ -3,7 +3,7 @@ version: "3.3"
 services:
   mysqldb:
     container_name: mysql
-    image: raniaouerfelli/mysql:5.6
+    image: mysql:5.6
     tty: true
     privileged: true
     environment:
@@ -22,7 +22,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/achatdb?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_PASSWORD:
       MYSQL_HOST: mysqldb
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: root
@@ -35,3 +35,4 @@ services:
       - mysqldb
     links:
       - mysqldb
+  
