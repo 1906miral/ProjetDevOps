@@ -1,3 +1,4 @@
+properties([pipelineTriggers([githubPush()])])
 pipeline {
     agent any
         environment { 
@@ -88,7 +89,7 @@ pipeline {
 	stage('Building our image') { 
             steps { 
                 script { 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                    dockerImage = docker.build registry + ":latest" 
                 }
             } 
         }
@@ -105,7 +106,7 @@ pipeline {
 
         stage('Cleaning up') { 
             steps { 
-                sh "docker rmi $registry:$BUILD_NUMBER" 
+                sh "docker rmi $registry:latest" 
             }
         }
         stage('show Date') {
@@ -116,13 +117,16 @@ pipeline {
         }
 
     }
-     post{
-        success{
-            mail to: "miral.barhoumi@esprit.tn",
-            subject: "Jenkins Pipeline",
-            body: "Build:$BUILD_NUMBER SUCCESS"
-        }
-    }
+    post {
+            always{
+                
+                emailext to: "miral.barhoumi@esprit.tn",
+                subject: "[DevOps Spring]jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
+                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here:http://192.168.1.149:8080/job/Angular/",
+		attachLog: true
+                
+            }
+        }	
 
 
 }
