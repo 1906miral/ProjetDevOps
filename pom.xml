@@ -41,11 +41,6 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
-            <dependency>
-           	      <groupId>org.apache.httpcomponents</groupId>
-                  <artifactId>httpclient</artifactId>
-                  <scope>test</scope>
-            </dependency>
 
 
 		<dependency>
