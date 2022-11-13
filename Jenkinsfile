@@ -69,14 +69,14 @@ sh 'mvn  deploy -e'                      }
                               sh 'docker login -u obettaieb -p Mypwdocker13'}
                       }
                       }
-                stage('Pushing Docker Image') {
+              /*  stage('Pushing Docker Image') {
                       steps {
                           script {
                            
                            sh 'docker push obettaieb/backcicd'
                           }
                       }
-                }
+                }*/
                 stage('Run Spring && MySQL Containers') {
                       steps {
                           script {
