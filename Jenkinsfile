@@ -55,36 +55,35 @@ pipeline {
 sh 'mvn  deploy -e'                      }
                    }         
          }
-      /*
-          stage('Build Docker Image'){
+     stage('Build Docker Image'){
+            steps {
+                script{
+				    sh 'docker image build -t obettaieb/backcicd .'
+                }    
+            }
+		}
+		stage('Docker login') {
                       steps {
-                          script{
-          				    sh 'docker image build . -t haifa123456/backcicd  '
+                          script {
+                        
+                              sh 'docker login -u obettaieb -p Mypwdocker13'}
+                      }
+                      }
+                stage('Pushing Docker Image') {
+                      steps {
+                          script {
+                           
+                           sh 'docker push obettaieb/backcicd'
                           }
                       }
-          		}
-          		stage('Docker login') {
-                                steps {
-                                    script {
-
-                                        sh 'docker login -u obettaieb -p Mypwdocker13'}
-                                }
-                                }
-                          stage('Pushing Docker Image') {
-                                steps {
-                                    script {
-
-                                     sh 'docker push haifa123456/backcicd'
-                                    }
-                                }
+                }
+                stage('Run Spring && MySQL Containers') {
+                      steps {
+                          script {
+                            sh 'docker-compose up -d'
                           }
-                          stage('Run Spring && MySQL Containers') {
-                                steps {
-                                    script {
-                                      sh ' docker-compose -f backend-spring/docker-compose.yml up -d '
-                                    }
-                                }
-                            }*/
+                      }
+                  }
      }
      
      }
