@@ -19,15 +19,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-//@AllArgsConstructor(access = AccessLevel.PUBLIC)
-//@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@AllArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
 @Setter
 @Entity
 public class Produit implements Serializable {
 
 	
-	public Produit() {
+	/*public Produit() {
 	
 	}
 	public Produit(Long idProduit, String codeProduit, String libelleProduit, float prix, Date dateCreation,
@@ -43,7 +43,7 @@ public class Produit implements Serializable {
 		this.stock = stock;
 		this.detailFacture = detailFacture;
 		this.categorieProduit = categorieProduit;
-	}
+	}*/
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
