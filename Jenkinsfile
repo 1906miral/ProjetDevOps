@@ -109,6 +109,13 @@ pipeline {
                 sh "docker rmi $registry:latest" 
             }
         }
+        stage('Docker-compose') {
+            steps {
+                echo 'Running docker-compose...';
+                sh """ docker-compose up -d""";
+               sh """ docker-compose ps """;
+            }
+        }
         stage('show Date') {
             steps {
                 echo 'Showing Date...';
