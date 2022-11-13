@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>tn.esprit.rh</groupId>
 	<artifactId>achat</artifactId>
-	<version>2.1.RELEASE</version>
+	<version>3.0</version>
 	<name>achat</name>
 	<description>Projet pour le module DevOps</description>
 	<properties>
@@ -41,7 +41,6 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
-
 
 
 		<dependency>
@@ -97,6 +96,11 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.4.5</version>
 		</dependency>
 	</dependencies>
 

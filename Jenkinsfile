@@ -122,7 +122,7 @@ pipeline {
                 
                 emailext to: "miral.barhoumi@esprit.tn",
                 subject: "[DevOps Spring]jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
-                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here:http://192.168.1.149:8080/job/Angular/",
+                body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here:http://192.168.1.149:8080/job/DevOpsProject/",
 		attachLog: true
                 
             }

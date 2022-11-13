@@ -27,23 +27,7 @@ import lombok.Setter;
 public class Produit implements Serializable {
 
 	
-	/*public Produit() {
-	
-	}
-	public Produit(Long idProduit, String codeProduit, String libelleProduit, float prix, Date dateCreation,
-			Date dateDerniereModification, Stock stock, Set<DetailFacture> detailFacture,
-			CategorieProduit categorieProduit) {
-		super();
-		this.idProduit = idProduit;
-		this.codeProduit = codeProduit;
-		this.libelleProduit = libelleProduit;
-		this.prix = prix;
-		this.dateCreation = dateCreation;
-		this.dateDerniereModification = dateDerniereModification;
-		this.stock = stock;
-		this.detailFacture = detailFacture;
-		this.categorieProduit = categorieProduit;
-	}*/
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

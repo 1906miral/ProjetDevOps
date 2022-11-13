@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Implementation-Title: achat
-Implementation-Version: 2.1.RELEASE
+Implementation-Version: 3.0
 Built-By: miral
 Implementation-Vendor-Id: tn.esprit.rh
 Build-Jdk: 1.8.0_261
