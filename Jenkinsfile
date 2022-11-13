@@ -27,28 +27,8 @@ pipeline {
                       }
                    }        
          }
-          stage('MVN test') {
-            steps {
-               
-              script {
-
-                  sh 'mvn  test'
-
- 
-                      }
-                   }        
-         }
-      /*
-         stage('Email Notification'){
-            steps{
-                script{
-                    mail bcc: '', body: '''Hi,
-Welcome to jenkins email alerts.
-Thanks,
- cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'haifa.brineg@esprit.tn'
-                }
-            }
-        }*/
+          
+  
           stage('SONAR') {
             steps {
                
