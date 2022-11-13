@@ -15,13 +15,12 @@ public class AchatApplication {
     public static void main(String[] args) {
         SpringApplication.run(AchatApplication.class, args);
     }
-    @Value("${allowed.origin}")
-    private String allowedOrigin;
+
     @Bean
     public WebMvcConfigurer corsConfigurer (){
     	return new WebMvcConfigurer(){
     		public void addCorsMappings(CorsRegistry registry){
-    			registry.addMapping("/**")
+    			registry.addMapping("/greeting-javaconfig")
     			        .allowedOrigins("http://192.168.1.149:4200");
     		}
     	};
