@@ -52,7 +52,7 @@ pipeline {
                
               script {
 
-sh 'mvn  deploy -e'                      }
+sh 'mvn -DskipTests deploy -e'                      }
                    }         
          }
      stage('Build Docker Image'){
