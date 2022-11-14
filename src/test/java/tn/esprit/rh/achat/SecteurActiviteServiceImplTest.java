@@ -40,7 +40,7 @@ public class SecteurActiviteServiceImplTest {
 
     @InjectMocks
     SecteurActiviteServiceImpl secteurService;
-   
+
 
     @Test
     public void retrieveSecteurActiviteTest(){
