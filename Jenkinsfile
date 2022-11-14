@@ -84,6 +84,17 @@ sh 'mvn  deploy -e'                      }
                           }
                       }
                   }
+	    stage('MVN test') {
+            steps {
+               
+              script {
+
+                  sh 'mvn  test'
+
+ 
+                      }
+                   }        
+         }
      }
      
      }
