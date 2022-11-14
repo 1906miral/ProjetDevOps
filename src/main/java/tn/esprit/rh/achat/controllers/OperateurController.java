@@ -49,13 +49,7 @@ public class OperateurController {
 		operateurService.deleteOperateur(operateurId);
 	}
 
-	// http://localhost:8089/SpringMVC/operateur/modify-operateur
-	@PutMapping("/modify-operateur")
-	@ResponseBody
-	public Operateur modifyOperateur(@RequestBody DtoOperateur o) {
-		Operateur operateur=new Operateur(o);
-		return operateurService.addOperateur(operateur);
-	}
+
 
 	
 }

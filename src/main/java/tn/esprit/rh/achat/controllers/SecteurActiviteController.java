@@ -49,13 +49,7 @@ public class SecteurActiviteController {
 		secteurActiviteService.deleteSecteurActivite(secteurActiviteId);
 	}
 
-	// http://localhost:8089/SpringMVC/secteurActivite/modify-secteurActivite
-	@PutMapping("/modify-secteurActivite")
-	@ResponseBody
-	public SecteurActivite modifySecteurActivite(@RequestBody DtoSecteurActivite sa) {
-		SecteurActivite secteurActivite=new SecteurActivite(sa);
-		return secteurActiviteService.addSecteurActivite(secteurActivite);
-	}
+
 
 	
 }

@@ -103,7 +103,7 @@ public class SecteurActiviteServiceImplTest {
         SecteurActivite s = new SecteurActivite(1L,"123","test");
         when(secteurRepo.save(s)).thenReturn(s);
         assertNotNull(s);
-        assertEquals(s, secteurService.updateSecteurActivite(s));
+        assertEquals(s, secteurService.addSecteurActivite(s));
         log.info("update ==>"+ s.toString());
 
 
