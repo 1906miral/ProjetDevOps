@@ -1,5 +1,10 @@
 version: "3"
 services:
+  Front-end:
+    container_name: front
+    image: obettaieb/front
+    ports:
+      - 80:80
   back-end:
     container_name: backcicd
     image: obettaieb/backcicd
@@ -16,5 +21,5 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_DATABASE: tpachato
+      MYSQL_DATABASE: achatdb
       MYSQL_ROOT_PASSWORD: root
