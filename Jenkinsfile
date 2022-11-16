@@ -28,7 +28,16 @@ pipeline {
                    }        
          }
           
-  
+  	    stage('MVN test') {
+            steps {
+               
+              script {
+
+                  sh 'mvn  test'
+
+ 
+                      }
+                   }  
           stage('SONAR') {
             steps {
                
@@ -84,16 +93,14 @@ sh 'mvn  deploy -e'                      }
                           }
                       }
                   }
-	    stage('MVN test') {
-            steps {
-               
-              script {
-
-                  sh 'mvn  test'
-
- 
-                      }
-                   }        
+	            stage('Sending email'){
+           steps {
+            mail bcc: '', body: '''Ping.. ,
+            Pipeline successfully executed  .
+            Keep Up The Good Work''', cc: '', from: '', replyTo: '', subject: 'Devops Pipeline', to: 'oumayma.bettaieb@esprit.tn'
+            }
+       }
+      
          }
      }
      
