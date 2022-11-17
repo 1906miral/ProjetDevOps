@@ -23,6 +23,7 @@ public class ProduitRestController {
 	}
 
 	@GetMapping("/retrieve-all-produits")
+      @CrossOrigin(origins = "http://192.168.1.149:4200")
 	@ResponseBody
 	public List<Produit> getProduits() {
 		
@@ -31,6 +32,7 @@ public class ProduitRestController {
 
 
 	@GetMapping("/retrieve-produit/{produit-id}")
+      @CrossOrigin(origins = "http://192.168.1.149:4200")
 	@ResponseBody
 	public Produit retrieveRayon(@PathVariable("produit-id") Long produitId) {
 		return produitService.retrieveProduit(produitId);
@@ -38,6 +40,7 @@ public class ProduitRestController {
 
 	
 	@PostMapping("/add-produit")
+      @CrossOrigin(origins = "http://192.168.1.149:4200")
 	@ResponseBody
 	public Produit addProduit(@RequestBody Produit p) {
 		
@@ -46,12 +49,14 @@ public class ProduitRestController {
 
 
 	@DeleteMapping("/remove-produit/{produit-id}")
+      @CrossOrigin(origins = "http://192.168.1.149:4200")
 	@ResponseBody
 	public void removeProduit(@PathVariable("produit-id") Long produitId) {
 		produitService.deleteProduit(produitId);
 	}
 
 	@PutMapping("/modify-produit")
+      @CrossOrigin(origins = "http://192.168.1.149:4200")
 	@ResponseBody
 	public Produit modifyProduit(@RequestBody Produit p) {
 		return produitService.updateProduit(p);
