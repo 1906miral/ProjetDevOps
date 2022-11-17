@@ -127,7 +127,7 @@ pipeline {
 	
       post {
         always {
-            emailext to: "jenkinsusermiral@gmail.com",
+            mail to: 'jenkinsusermiral@gmail.com',
             subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!',
             body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS.',
          attachLog: true
