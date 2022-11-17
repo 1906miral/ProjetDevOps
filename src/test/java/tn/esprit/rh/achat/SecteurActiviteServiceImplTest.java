@@ -65,7 +65,7 @@ public class SecteurActiviteServiceImplTest {
     }
 
     @Test
-    public void retrieveAllFournisseursTest()
+    public void retrieveAllSecteurActiviteTest()
     {
         List<SecteurActivite> Ls = new ArrayList<SecteurActivite>() {
 
