@@ -129,8 +129,8 @@ pipeline {
         always {
             mail to: 'jenkinsusermiral@gmail.com',
             subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!',
-            body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS.',
-         attachLog: true
+            body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS.'
+
            
         }
     }
