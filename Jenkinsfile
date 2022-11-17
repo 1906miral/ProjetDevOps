@@ -128,8 +128,8 @@ pipeline {
       post {
         always {
             mail to: 'miral.barhoumi@esprit.tn',
-            subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!',
-            body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS.More Info can be found here $BUILD_URL'
+            subject: "[DevOps SpringProject]jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
+		    body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here${env.BUILD_URL}"
 
            
         }
