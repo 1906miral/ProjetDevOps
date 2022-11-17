@@ -127,9 +127,9 @@ pipeline {
 	
       post {
         always {
-            mail to: 'jenkinsusermiral@gmail.com',
+            mail to: 'miral.barhoumi@esprit.tn',
             subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!',
-            body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS.'
+            body: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS.More Info can be found here $BUILD_URL'
 
            
         }
