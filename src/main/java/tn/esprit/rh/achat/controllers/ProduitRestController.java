@@ -17,6 +17,7 @@ public class ProduitRestController {
    
 	@Autowired
 	IProduitService produitService;
+//default constructor
         public ProduitRestController() {
 	
 	}
