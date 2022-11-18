@@ -13,7 +13,6 @@ pipeline {
 	dockerImage = '' 
 
     }		
-
     stages {
         stage('Checkout GIT') {
             steps {
@@ -124,7 +123,6 @@ pipeline {
         }
 
     }
-	
       post {
         always {
             mail to: 'miral.barhoumi@esprit.tn',
